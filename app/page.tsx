@@ -16,7 +16,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/34621192582?text=Hola, voldria informació sobre biomassa o llenya"
+              href="https://wa.me/34621192582?text=Hola, estic interessat en una caldera o sistema de biomassa. Em podeu fer pressupost?"
               className="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-xl font-semibold transition"
             >
               WhatsApp
