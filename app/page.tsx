@@ -71,6 +71,20 @@ export default function Home() {
 
       </section>
 
+      {/* SOBRE NOSALTRES */}
+      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
+
+        <h2 className="text-4xl font-bold mb-8">
+          Sobre nosaltres
+        </h2>
+
+        <p className="text-lg text-gray-600 leading-8">
+          Treballs Forestals Sant Jaume és una empresa d’Osona vinculada al sector forestal i la biomassa.
+          Oferim venda de llenya, serveis forestals i solucions de calefacció amb biomassa adaptades a cada client.
+        </p>
+
+      </section>
+
       {/* CONTACTE */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
 
