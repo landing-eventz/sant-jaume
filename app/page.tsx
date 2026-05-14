@@ -1,114 +1,96 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
 
       {/* HERO */}
-      <section className="h-[90vh] flex items-center justify-center text-center px-6 bg-black text-white">
-        <div className="max-w-4xl">
+      <section className="bg-black text-white py-24 px-6 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold max-w-5xl mx-auto">
+          Biomassa, llenya i calderes a Osona
+        </h1>
 
-          <h1 className="text-5xl md:text-6xl font-bold">
-            Biomassa, llenya i serveis forestals
-          </h1>
+        <p className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto">
+          Instal·lació de calderes de biomassa, inserts, venda de llenya,
+          escura de xemeneies i serveis forestals a Osona i Catalunya.
+        </p>
 
-          <p className="mt-6 text-xl text-gray-300">
-            Venda de llenya i instal·lació d’inserts i calderes de biomassa a Osona i Catalunya
-          </p>
-
-          <div className="mt-10 flex flex-col md:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/34621192582?text=Hola, estic interessat en una caldera o sistema de biomassa. Em podeu fer pressupost?"
-              className="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-xl font-semibold transition"
-            >
-              WhatsApp
-            </a>
-          </div>
-
-        </div>
+        <a
+          href="https://wa.me/34621192582"
+          className="inline-block mt-8 bg-green-500 px-8 py-4 rounded-xl font-semibold"
+        >
+          Demanar pressupost
+        </a>
       </section>
 
       {/* SERVEIS */}
       <section className="max-w-6xl mx-auto px-6 py-20">
 
-        <h2 className="text-4xl font-bold text-center mb-12">
-          Què fem
+        <h2 className="text-3xl font-bold mb-12 text-center">
+          Els nostres serveis
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          <div className="border p-6 rounded-xl">
-            <h3 className="text-xl font-bold">Llenya</h3>
-
-            <p className="mt-2 text-gray-600">
-              Venda de llenya i biomassa per particulars i professionals.
+          <Link href="/calderes-biomassa-osona" className="border rounded-2xl p-8 hover:shadow-xl transition">
+            <h3 className="text-2xl font-bold">Calderes de biomassa</h3>
+            <p className="mt-4 text-gray-700">
+              Instal·lació i manteniment de sistemes eficients de calefacció amb biomassa.
             </p>
-          </div>
+          </Link>
 
-          <div className="border p-6 rounded-xl">
-            <h3 className="text-xl font-bold">Inserts</h3>
-
-            <p className="mt-2 text-gray-600">
-              Solucions modernes de llenya i biomassa per a la llar.
+          <Link href="/escuraxemeneies" className="border rounded-2xl p-8 hover:shadow-xl transition">
+            <h3 className="text-2xl font-bold">Escura de xemeneies</h3>
+            <p className="mt-4 text-gray-700">
+              Neteja professional de xemeneies i conductes de fum.
             </p>
-          </div>
+          </Link>
 
-          <div className="border p-6 rounded-xl">
-            <h3 className="text-xl font-bold">Calderes</h3>
-
-            <p className="mt-2 text-gray-600">
-              Sistemes eficients de calefacció amb biomassa.
+          <Link href="/inserts-llenya" className="border rounded-2xl p-8 hover:shadow-xl transition">
+            <h3 className="text-2xl font-bold">Inserts de llenya</h3>
+            <p className="mt-4 text-gray-700">
+              Solucions modernes i eficients per escalfar la llar.
             </p>
-          </div>
+          </Link>
 
-          <div className="border p-6 rounded-xl">
-            <h3 className="text-xl font-bold">Serveis forestals</h3>
+          {/* 🔥 FIX REAL */}
+          <Link
+            href="/desbrossaments-boscos-osona"
+            className="border rounded-2xl p-8 hover:shadow-xl transition bg-green-50"
+          >
+            <h3 className="text-2xl font-bold">
+              Desbrossaments i treballs forestals
+            </h3>
 
-            <p className="mt-2 text-gray-600">
-              Tala d’arbres, desbrossaments i manteniment forestal.
+            <p className="mt-4 text-gray-700">
+              Neteja de boscos, finques i camins rurals amb maquinària professional.
             </p>
-          </div>
+
+            <p className="mt-4 text-green-700 font-semibold">
+              Veure cas real →
+            </p>
+          </Link>
 
         </div>
-
       </section>
 
-      {/* SOBRE NOSALTRES */}
-      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
+      {/* SEO */}
+      <section className="max-w-5xl mx-auto px-6 pb-20 space-y-8">
 
-        <h2 className="text-4xl font-bold mb-8">
-          Sobre nosaltres
+        <h2 className="text-3xl font-bold">
+          Especialistes en biomassa i treballs forestals a Osona
         </h2>
 
-        <p className="text-lg text-gray-600 leading-8">
-          Treballs Forestals Sant Jaume és una empresa d’Osona vinculada al sector forestal i la biomassa.
-          Oferim venda de llenya, serveis forestals i solucions de calefacció amb biomassa adaptades a cada client.
+        <p className="text-gray-700 leading-7">
+          Treballs Forestals Sant Jaume ofereix serveis de biomassa, llenya,
+          manteniment forestal i desbrossaments professionals a Osona i Catalunya.
+        </p>
+
+        <p className="text-gray-700 leading-7">
+          Treballem a Vic, Manlleu, Torelló, Centelles i altres municipis de la comarca.
         </p>
 
       </section>
-
-      {/* CONTACTE */}
-      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-
-        <h2 className="text-4xl font-bold mb-6">
-          Contacte ràpid
-        </h2>
-
-        <p className="text-gray-600 mb-8">
-          Escriu-nos i t’assessorem sense compromís.
-        </p>
-
-        <a
-          href="https://wa.me/34621192582?text=Hola, voldria informació sobre biomassa, llenya o serveis forestals"
-          className="bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-xl font-semibold transition"
-        >
-          Contactar ara
-        </a>
-
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-black text-white text-center py-10">
-        Treballs Forestals Sant Jaume
-      </footer>
 
     </main>
   );
