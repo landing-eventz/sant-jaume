@@ -14,24 +14,53 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ca">
+      <head>
+        {/* SEO STRUCTURED DATA - LOCAL BUSINESS */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Treballs Forestals Sant Jaume",
+              "url": "https://sant-jaume.vercel.app",
+              "telephone": "+34 621 19 25 82",
+              "areaServed": "Osona, Catalunya",
+              "description":
+                "Especialistes en calderes de biomassa, inserts de llenya, neteja de xemeneies i serveis forestals a Osona.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Osona",
+                "addressRegion": "Catalunya",
+                "addressCountry": "ES",
+              },
+              "serviceType": [
+                "Calderes de biomassa",
+                "Inserts de llenya",
+                "Escura de xemeneies",
+                "Desbrossaments forestals",
+              ],
+              "sameAs": [
+                "https://wa.me/34621192582"
+              ]
+            }),
+          }}
+        />
+      </head>
+
       <body className="bg-white text-black">
 
         {/* HEADER */}
         <header className="border-b bg-white sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-6">
 
-            <Link
-              href="/"
-              className="text-2xl font-bold"
-            >
+            <Link href="/" className="text-2xl font-bold">
               Treballs Forestals Sant Jaume
             </Link>
 
             <nav className="flex flex-wrap gap-6 text-sm md:text-base font-medium">
 
-              <Link href="/">
-                Inici
-              </Link>
+              <Link href="/">Inici</Link>
 
               <Link href="/calderes-biomassa-osona">
                 Calderes biomassa
@@ -123,17 +152,9 @@ export default function RootLayout({
 
               <div className="mt-4 text-gray-300 leading-7">
 
-                <p>
-                  Osona i Catalunya
-                </p>
-
-                <p>
-                  Tel: 621 19 25 82
-                </p>
-
-                <p>
-                  Pressupostos sense compromís
-                </p>
+                <p>Osona i Catalunya</p>
+                <p>Tel: 621 19 25 82</p>
+                <p>Pressupostos sense compromís</p>
 
               </div>
 
