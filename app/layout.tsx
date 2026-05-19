@@ -1,8 +1,11 @@
 import "./globals.css";
 import Link from "next/link";
+import Script from "next/script";
+import WhatsappButton from "@/components/WhatsappButton";
 
 export const metadata = {
   title: "Treballs Forestals Sant Jaume | Biomassa i calderes a Osona",
+
   description:
     "Instal·lació de calderes de biomassa, inserts, escura de xemeneies i serveis forestals a Osona i Catalunya.",
 };
@@ -15,32 +18,62 @@ export default function RootLayout({
   return (
     <html lang="ca">
       <head>
-        {/* SEO STRUCTURED DATA - LOCAL BUSINESS */}
+
+        {/* GOOGLE ANALYTICS */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-D5430BP6SK"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag(){
+              dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+
+            gtag('config', 'G-D5430BP6SK');
+          `}
+        </Script>
+
+        {/* SEO STRUCTURED DATA */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
+
               "@type": "LocalBusiness",
-              "name": "Treballs Forestals Sant Jaume",
-              "url": "https://sant-jaume.vercel.app",
-              "telephone": "+34 621 19 25 82",
-              "areaServed": "Osona, Catalunya",
-              "description":
+
+              name: "Treballs Forestals Sant Jaume",
+
+              url: "https://sant-jaume.vercel.app",
+
+              telephone: "+34 621 19 25 82",
+
+              areaServed: "Osona, Catalunya",
+
+              description:
                 "Especialistes en calderes de biomassa, inserts de llenya, neteja de xemeneies i serveis forestals a Osona.",
-              "address": {
+
+              address: {
                 "@type": "PostalAddress",
-                "addressLocality": "Osona",
-                "addressRegion": "Catalunya",
-                "addressCountry": "ES",
+                addressLocality: "Osona",
+                addressRegion: "Catalunya",
+                addressCountry: "ES",
               },
-              "serviceType": [
+
+              serviceType: [
                 "Calderes de biomassa",
                 "Inserts de llenya",
                 "Escura de xemeneies",
                 "Desbrossaments forestals",
               ],
-              "sameAs": [
+
+              sameAs: [
                 "https://wa.me/34621192582"
               ]
             }),
@@ -52,6 +85,7 @@ export default function RootLayout({
 
         {/* HEADER */}
         <header className="border-b bg-white sticky top-0 z-50">
+
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-6">
 
             <Link href="/" className="text-2xl font-bold">
@@ -60,7 +94,9 @@ export default function RootLayout({
 
             <nav className="flex flex-wrap gap-6 text-sm md:text-base font-medium">
 
-              <Link href="/">Inici</Link>
+              <Link href="/">
+                Inici
+              </Link>
 
               <Link href="/calderes-biomassa-osona">
                 Calderes biomassa
@@ -81,6 +117,7 @@ export default function RootLayout({
             </nav>
 
           </div>
+
         </header>
 
         {/* MAIN */}
@@ -90,10 +127,12 @@ export default function RootLayout({
 
         {/* FOOTER */}
         <footer className="bg-black text-white mt-20 border-t border-neutral-800">
+
           <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
 
             {/* EMPRESA */}
             <div>
+
               <h3 className="font-bold text-lg">
                 Treballs Forestals Sant Jaume
               </h3>
@@ -107,10 +146,12 @@ export default function RootLayout({
                 Servei professional a Vic, Manlleu, Torelló,
                 Centelles i altres municipis d’Osona.
               </p>
+
             </div>
 
             {/* SERVEIS */}
             <div>
+
               <h3 className="font-bold text-lg">
                 Serveis
               </h3>
@@ -142,10 +183,12 @@ export default function RootLayout({
                 </li>
 
               </ul>
+
             </div>
 
             {/* CONTACTE */}
             <div>
+
               <h3 className="font-bold text-lg">
                 Contacte
               </h3>
@@ -153,17 +196,22 @@ export default function RootLayout({
               <div className="mt-4 text-gray-300 leading-7">
 
                 <p>Osona i Catalunya</p>
-                <p>Tel: 621 19 25 82</p>
-                <p>Pressupostos sense compromís</p>
+
+                <p>
+                  Tel: 621 19 25 82
+                </p>
+
+                <p>
+                  Pressupostos sense compromís
+                </p>
 
               </div>
 
-              <a
-                href="https://wa.me/34621192582"
+              <WhatsappButton
+                label="WhatsApp"
+                location="footer"
                 className="inline-block mt-6 bg-green-500 hover:bg-green-400 transition text-black px-6 py-3 rounded-xl font-semibold"
-              >
-                WhatsApp
-              </a>
+              />
 
             </div>
 
@@ -171,7 +219,9 @@ export default function RootLayout({
 
           {/* BOTTOM */}
           <div className="border-t border-neutral-800 py-6 px-6 text-center text-sm text-gray-500">
+
             © 2026 Treballs Forestals Sant Jaume · Biomassa i calefacció a Osona
+
           </div>
 
         </footer>
