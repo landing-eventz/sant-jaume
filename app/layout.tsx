@@ -1,13 +1,30 @@
+
 import "./globals.css";
 import Link from "next/link";
 import Script from "next/script";
 import WhatsappButton from "@/components/WhatsappButton";
 
 export const metadata = {
-  title: "Treballs Forestals Sant Jaume | Biomassa i calderes a Osona",
+  metadataBase: new URL("https://sant-jaume.com"),
+
+  title: "Treballs Forestals Sant Jaume | Osona i Catalunya",
 
   description:
-    "Instal·lació de calderes de biomassa, inserts, escura de xemeneies i serveis forestals a Osona i Catalunya.",
+    "Empresa familiar de treballs forestals a Osona i Catalunya. Desbrossaments, tala i aprofitament forestal, manteniment de finques, camins i prevenció d'incendis.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    title: "Treballs Forestals Sant Jaume",
+    description:
+      "Quatre generacions d'experiència forestal. Treballs forestals a Osona i arreu de Catalunya.",
+    url: "https://sant-jaume.com",
+    siteName: "Treballs Forestals Sant Jaume",
+    locale: "ca_ES",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -39,79 +56,95 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* SEO STRUCTURED DATA */}
+        {/* DADES ESTRUCTURADES: TREBALLS FORESTALS */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-
               "@type": "LocalBusiness",
-
               name: "Treballs Forestals Sant Jaume",
-
-              url: "https://sant-jaume.vercel.app",
-
+              url: "https://sant-jaume.com",
               telephone: "+34 621 19 25 82",
-
-              areaServed: "Osona, Catalunya",
-
+              areaServed: {
+                "@type": "AdministrativeArea",
+                name: "Catalunya",
+              },
               description:
-                "Especialistes en calderes de biomassa, inserts de llenya, neteja de xemeneies i serveis forestals a Osona.",
-
+                "Empresa familiar de treballs forestals amb quatre generacions d'experiència. Desbrossaments, tala, manteniment de finques, camins i gestió forestal.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Osona",
                 addressRegion: "Catalunya",
                 addressCountry: "ES",
               },
-
               serviceType: [
-                "Calderes de biomassa",
-                "Inserts de llenya",
-                "Escura de xemeneies",
-                "Desbrossaments forestals",
+                "Desbrossaments",
+                "Tala i aprofitament forestal",
+                "Manteniment de finques",
+                "Poda i tala d'arbres",
+                "Neteja de parcel·les",
+                "Manteniment de camins",
+                "Franges de prevenció d'incendis",
+                "Trituració de restes vegetals",
               ],
-
               sameAs: [
-                "https://wa.me/34621192582"
-              ]
+                "https://wa.me/34621192582",
+              ],
             }),
           }}
         />
+
       </head>
 
-      <body className="bg-white text-black">
+      <body className="bg-white text-gray-900">
 
-        {/* HEADER */}
-        <header className="border-b bg-white sticky top-0 z-50">
+        {/* CAPÇALERA */}
+        <header className="border-b border-gray-200 bg-white sticky top-0 z-50">
 
-          <div className="max-w-6xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-6">
+          <div className="max-w-6xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-5">
 
-            <Link href="/" className="text-2xl font-bold">
+            <Link
+              href="/"
+              className="text-xl md:text-2xl font-bold text-[#183d2b]"
+            >
               Treballs Forestals Sant Jaume
             </Link>
 
-            <nav className="flex flex-wrap gap-6 text-sm md:text-base font-medium">
+            <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm md:text-base font-medium">
 
-              <Link href="/">
+              <Link href="/" className="hover:text-green-700 transition">
                 Inici
               </Link>
 
-              <Link href="/calderes-biomassa-osona">
-                Calderes biomassa
+              <Link
+                href="/#serveis-forestals"
+                className="hover:text-green-700 transition"
+              >
+                Serveis forestals
               </Link>
 
-              <Link href="/inserts-llenya">
-                Inserts llenya
+              <Link
+                href="/#historia"
+                className="hover:text-green-700 transition"
+              >
+                La nostra història
               </Link>
 
-              <Link href="/escuraxemeneies">
+              <Link
+                href="/#contacte"
+                className="hover:text-green-700 transition"
+              >
+                Contacte
+              </Link>
+
+              <span className="hidden md:inline text-gray-300">|</span>
+
+              <Link
+                href="/escuraxemeneies"
+                className="text-green-800 hover:text-green-600 transition font-semibold"
+              >
                 Escura xemeneies
-              </Link>
-
-              <Link href="/vic/calderes-biomassa">
-                Vic
               </Link>
 
             </nav>
@@ -120,15 +153,13 @@ export default function RootLayout({
 
         </header>
 
-        {/* MAIN */}
-        <main>
-          {children}
-        </main>
+        {/* CONTINGUT */}
+        {children}
 
         {/* FOOTER */}
-        <footer className="bg-black text-white mt-20 border-t border-neutral-800">
+        <footer className="bg-[#111a14] text-white mt-0">
 
-          <div className="max-w-6xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
+          <div className="max-w-6xl mx-auto px-6 py-14 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
 
             {/* EMPRESA */}
             <div>
@@ -138,46 +169,94 @@ export default function RootLayout({
               </h3>
 
               <p className="mt-4 text-gray-300 leading-7">
-                Especialistes en biomassa, calderes, inserts de llenya,
-                manteniment de xemeneies i serveis forestals a Osona.
+                Empresa familiar amb quatre generacions
+                d'experiència forestal.
               </p>
 
               <p className="mt-4 text-gray-400 text-sm leading-6">
-                Servei professional a Vic, Manlleu, Torelló,
-                Centelles i altres municipis d’Osona.
+                Arrelats a Osona. Treballem arreu de Catalunya.
               </p>
 
             </div>
 
-            {/* SERVEIS */}
+            {/* SERVEIS FORESTALS */}
             <div>
 
               <h3 className="font-bold text-lg">
-                Serveis
+                Treballs forestals
               </h3>
 
-              <ul className="mt-4 space-y-3 text-gray-300">
+              <ul className="mt-4 space-y-3 text-gray-300 text-sm">
 
                 <li>
-                  <Link href="/calderes-biomassa-osona">
-                    Instal·lació de calderes de biomassa
+                  <Link href="/#serveis-forestals" className="hover:text-white">
+                    Desbrossaments
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/inserts-llenya">
+                  <Link href="/#serveis-forestals" className="hover:text-white">
+                    Tala i aprofitament forestal
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/#serveis-forestals" className="hover:text-white">
+                    Manteniment de finques i camins
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/#serveis-forestals" className="hover:text-white">
+                    Prevenció d'incendis
+                  </Link>
+                </li>
+
+              </ul>
+
+            </div>
+
+            {/* ALTRES SERVEIS */}
+            <div>
+
+              <h3 className="font-bold text-lg">
+                Altres serveis
+              </h3>
+
+              <ul className="mt-4 space-y-3 text-gray-300 text-sm">
+
+                <li>
+                  <Link href="/escuraxemeneies" className="hover:text-white">
+                    Escura de xemeneies
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/calderes-biomassa-osona" className="hover:text-white">
+                    Calderes de biomassa
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/inserts-llenya" className="hover:text-white">
                     Inserts de llenya
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/escuraxemeneies">
-                    Escura i neteja de xemeneies
+                  <Link href="/fusta-construccio-osona" className="hover:text-white">
+                    Fusta per a construcció
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="/vic/calderes-biomassa">
+                  <Link href="/biga-laminada-osona" className="hover:text-white">
+                    Bigues laminades
+                  </Link>
+                </li>
+
+                <li>
+                  <Link href="/vic/calderes-biomassa" className="hover:text-white">
                     Calderes de biomassa a Vic
                   </Link>
                 </li>
@@ -186,41 +265,32 @@ export default function RootLayout({
 
             </div>
 
-            {/* CONTACTE */}
-            <div>
+          </div>
 
-              <h3 className="font-bold text-lg">
-                Contacte
-              </h3>
+          {/* CONTACTE I COPYRIGHT */}
+          <div className="border-t border-neutral-700">
 
-              <div className="mt-4 text-gray-300 leading-7">
+            <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
+              <div className="text-center md:text-left text-gray-300 text-sm leading-7">
 
                 <p>Osona i Catalunya</p>
-
-                <p>
-                  Tel: 621 19 25 82
-                </p>
-
-                <p>
-                  Pressupostos sense compromís
-                </p>
+                <p>Telèfon: 621 19 25 82</p>
+                <p>Pressupostos sense compromís</p>
 
               </div>
 
               <WhatsappButton
-                label="WhatsApp"
+                label="Contacta per WhatsApp"
                 location="footer"
-                className="inline-block mt-6 bg-green-500 hover:bg-green-400 transition text-black px-6 py-3 rounded-xl font-semibold"
+                className="inline-block bg-green-500 hover:bg-green-600 transition text-white px-6 py-3 rounded-xl font-semibold"
               />
 
             </div>
 
-          </div>
-
-          {/* BOTTOM */}
-          <div className="border-t border-neutral-800 py-6 px-6 text-center text-sm text-gray-500">
-
-            © 2026 Treballs Forestals Sant Jaume · Biomassa i calefacció a Osona
+            <div className="border-t border-neutral-800 py-6 px-6 text-center text-sm text-gray-400">
+              © {new Date().getFullYear()} Treballs Forestals Sant Jaume
+            </div>
 
           </div>
 
